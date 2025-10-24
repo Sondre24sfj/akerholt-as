@@ -1,4 +1,5 @@
 // src/components/Portfolio.jsx
+// src/components/Portfolio.jsx
 export default function Portfolio(){
   return (
     <section className="section block" id="portfolio">
@@ -10,7 +11,13 @@ export default function Portfolio(){
 
         <div className="portfolio-grid">
           {/* WIKE & Co */}
-          <article className="card wike">
+          <a
+            className="card wike card-link"
+            href="https://wikeco.no"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Åpne WIKE & Co (wikeco.no) i ny fane"
+          >
             <div className="thumb">
               <img src="/images/portfolio/Wike-logo.png" alt="WIKE & Co" />
             </div>
@@ -21,10 +28,16 @@ export default function Portfolio(){
                 <span className="badge badge--wp">WordPress</span>
               </div>
             </div>
-          </article>
+          </a>
 
           {/* Stall & Landbruksflis */}
-          <article className="card stall">
+          <a
+            className="card stall card-link"
+            href="https://landbruksflis.no"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Åpne Stall og Landbruksflis AS (landbruksflis.no) i ny fane"
+          >
             <div className="thumb">
               <img src="/images/portfolio/Stall-logo.png" alt="Stall og Landbruksflis AS" />
             </div>
@@ -37,10 +50,16 @@ export default function Portfolio(){
                 <span className="badge badge--next">Next.js</span>
               </div>
             </div>
-          </article>
+          </a>
 
           {/* GitHub */}
-          <article className="card github">
+          <a
+            className="card github card-link"
+            href="https://github.com/Sondre24sfj"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Åpne GitHub-profilen min i ny fane"
+          >
             <div className="thumb">
               <img src="/images/portfolio/github-logo.png" alt="GitHub" />
             </div>
@@ -55,7 +74,7 @@ export default function Portfolio(){
                 <span className="badge badge--js">JavaScript</span>
               </div>
             </div>
-          </article>
+          </a>
         </div>
       </div>
     </section>
