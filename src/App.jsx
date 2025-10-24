@@ -1,20 +1,17 @@
+import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header.jsx'
-import Hero from './components/Hero.jsx'
-import About from './components/About.jsx'
-import Portfolio from './components/Portfolio.jsx'
-import TechStack from './components/TechStack.jsx'
-import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import Home from './pages/Home.jsx'
+import PortfolioPage from './pages/Portfolio.jsx'
 
 export default function App() {
   return (
     <>
       <Header />
-      <Hero />
-      <About />
-      <Portfolio />
-      <TechStack />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
+      </Routes>
       <Footer />
     </>
   )

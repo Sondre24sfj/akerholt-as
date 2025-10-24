@@ -1,50 +1,48 @@
 import { useState, useEffect } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 
 export default function Header(){
   const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
 
-  // Lukk menyen når man resizer over breakpoint
-  useEffect(() => {
-    const onResize = () => {
-      if (window.innerWidth >= 900 && open) setOpen(false)
+  useEffect(() => { if (open) setOpen(false) }, [pathname])
+
+  // Hjelper for å scrolle til ankere på forsiden
+  const scrollToId = (id) => {
+    if (pathname !== '/') {
+      // Gå hjem først; Home håndterer scroll på mount via hash
+      window.location.href = `/#${id}`
+      return
     }
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-  }, [open])
-
-  // Lukk menyen ved klikk på lenke
-  const onNavClick = () => setOpen(false)
+    const el = document.getElementById(id)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <header className={`header ${open ? 'is-open' : ''}`}>
       <div className="container header__row">
-        <a href="#" className="brand" aria-label="Akerholt AS – hjem">Akerholt AS</a>
+        <Link to="/" className="brand" aria-label="Akerholt AS – hjem">Akerholt AS</Link>
 
-        {/* Desktop-nav */}
         <nav className="nav nav--desktop" aria-label="Hovedmeny">
-          <a href="#om">Om meg</a>
-          <a href="#portfolio">Portefølje</a>
-          <a href="#kontakt">Kontakt</a>
+          <button className="aslink" onClick={()=>scrollToId('om')}>Om meg</button>
+          <NavLink to="/portfolio">Portefølje</NavLink>
+          <button className="aslink" onClick={()=>scrollToId('kontakt')}>Kontakt</button>
         </nav>
 
-        {/* Mobil: toggle-knapp */}
         <button
           className="nav-toggle"
           aria-label="Åpne/lukk meny"
           aria-expanded={open ? 'true' : 'false'}
-          onClick={() => setOpen(!open)}
+          onClick={()=>setOpen(!open)}
         >
-          <span className="bar" />
-          <span className="bar" />
-          <span className="bar" />
+          <span className="bar" /><span className="bar" /><span className="bar" />
         </button>
       </div>
 
-      {/* Mobil-meny (slår inn < 900px) */}
       <nav className="nav-mobile" aria-label="Mobilmeny">
-        <a href="#om" onClick={onNavClick}>Om meg</a>
-        <a href="#portfolio" onClick={onNavClick}>Portefølje</a>
-        <a href="#kontakt" onClick={onNavClick}>Kontakt</a>
+        <button className="aslink" onClick={()=>scrollToId('om')}>Om meg</button>
+        <NavLink to="/portfolio">Portefølje</NavLink>
+        <button className="aslink" onClick={()=>scrollToId('kontakt')}>Kontakt</button>
       </nav>
     </header>
   )

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Hero(){
   return (
     <section className="hero">
@@ -9,7 +11,7 @@ export default function Hero(){
         <p>Bygger robuste, skalerbare og brukervennlige nettløsninger for bedrifter.</p>
         <div className="cta">
           <a className="btn primary" href="#kontakt">Ta kontakt</a>
-          <a className="btn secondary" href="#portfolio">Portefølje</a>
+          <Link className="btn secondary" to="/portfolio">Portefølje</Link>
         </div>
       </div>
     </section>
