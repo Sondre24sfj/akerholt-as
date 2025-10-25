@@ -29,7 +29,7 @@ export default function Footer() {
               rel="noreferrer"
               aria-label="LinkedIn"
             >
-              <img src="/images/ui/linkedin.png" alt="LinkedIn" />
+              <img src="/images/ui/linkdin.png" alt="LinkedIn" />
             </a>
           </div>
 
