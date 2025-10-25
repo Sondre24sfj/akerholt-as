@@ -1,9 +1,13 @@
-export default function About(){
+export default function About() {
   return (
     <section className="section" id="om">
       <div className="container about">
         <div className="photo">
-          <img src="/images/hero/Om-meg.jpg"  alt="Arbeid ved laptop" img></img>
+          <img
+            src="/images/hero/om-meg.jpg"
+            alt="Arbeid ved laptop"
+            loading="lazy"
+          />
         </div>
         <div>
           <h3>Om meg</h3>
@@ -23,5 +27,5 @@ export default function About(){
         </div>
       </div>
     </section>
-  )
+  );
 }
