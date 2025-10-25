@@ -1,103 +1,86 @@
-import { useState } from 'react'
+import { useState, useRef } from "react";
 
-const ENDPOINT = 'https://formspree.io/f/XYZABCD'; // <-- bytt til din Formspree URL
+const ENDPOINT = "https://formsubmit.co/ajax/post.akerholt@gmail.com";
 
 export default function Contact(){
-  const [status, setStatus] = useState('idle')
-  const [error, setError] = useState('')
-
-  function wordCount(txt){
-    return txt.trim().split(/\s+/).filter(Boolean).length
-  }
+  const formRef = useRef(null);
+  const [status, setStatus] = useState("idle");  // idle | sending | sent | error
+  const [error, setError] = useState("");
 
   async function onSubmit(e){
-    e.preventDefault()
-    setError('')
-    const form = e.currentTarget
-    const data = Object.fromEntries(new FormData(form))
+    e.preventDefault();
+    setError("");
 
-    // === Enkel validering ===
-    const fullNameOk = /\S+\s+\S+/.test(data.name || '')   // fornavn + etternavn
-    const emailOk    = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email || '')
-    const msgOk      = wordCount(data.message || '') >= 5
+    const fd = new FormData(formRef.current);
 
-    if(!fullNameOk){ setError('Skriv fullt navn (fornavn og etternavn).'); return }
-    if(!emailOk){ setError('Skriv en gyldig e-postadresse.'); return }
-    if(!msgOk){ setError('Meldingen må være minst 5 ord.'); return }
+    // Enkle valideringer
+    const name  = (fd.get("name") || "").trim();
+    const email = (fd.get("email") || "").trim();
+    const msg   = (fd.get("message") || "").trim();
 
-    setStatus('sending')
+    if (!name || !email) {
+      setError("Skriv fullt navn og e-post.");
+      return;
+    }
+    if (msg.split(/\s+/).filter(Boolean).length < 5) {
+      setError("Meldingen må være minst 5 ord.");
+      return;
+    }
 
-    try{
+    setStatus("sending");
+    try {
       const res = await fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
-      })
-      if(!res.ok){
-        const j = await res.json().catch(()=>({}))
-        throw new Error(j?.error || 'Ukjent feil')
-      }
-      setStatus('sent'); form.reset()
-    }catch(err){
-      console.error(err)
-      setStatus('error')
-      setError('Klarte ikke sende akkurat nå. Prøv igjen om litt.')
+        method: "POST",
+        headers: { Accept: "application/json" },   // Viktig for FormSubmit
+        body: fd,
+      });
+
+      if (!res.ok) throw new Error("FormSubmit svarte ikke OK");
+      setStatus("sent");
+      formRef.current.reset();
+    } catch (err) {
+      setStatus("error");
+      setError("Klarte ikke sende akkurat nå. Prøv igjen om litt.");
     }
   }
 
   return (
-    <section className="section contact-section" id="kontakt">
+    <section className="section" id="kontakt">
       <div className="container contact">
         <div className="left">
           <h3>Ta kontakt</h3>
-          <p>
-            Fortell kort hva du trenger hjelp med, så svarer jeg som regel samme dag.
-            Du kan også sende e-post direkte: <strong>post.akerholt@gmail.com</strong>
-          </p>
-          
+          <p>Fortell kort hva du trenger hjelp med, så svarer jeg som regel samme dag.</p>
+          <p>Du kan også sende e-post direkte: <strong>post.akerholt@gmail.com</strong></p>
+          <p className="note">* Jeg lagrer ikke dataene dine i appen. Skjemaet sender en e-post til meg.</p>
         </div>
 
-        <form onSubmit={onSubmit} className="right" autoComplete="on">
-          {/* Emne i e-posthodet hos Formspree */}
-          <input type="hidden" name="_subject" value="Kontakt via akerholt-as.no" />
+        <form ref={formRef} onSubmit={onSubmit} className="right" autoComplete="on">
+          {/* Skjulte felt anbefalt av FormSubmit */}
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="text" name="_honey" style={{display:"none"}} tabIndex="-1" autoComplete="off" />
 
           <div className="formrow">
-            <div className="field">
-              <label>Fullt navn<span className="req">*</span></label>
-              <input className="input" name="name" placeholder="Fornavn Etternavn" required />
-            </div>
-            <div className="field">
-              <label>E-post<span className="req">*</span></label>
-              <input className="input" type="email" name="email" placeholder="navn@domene.no" required />
-            </div>
+            <input className="input" name="name"  placeholder="Fullt navn *" required />
+            <input className="input" name="email" type="email" placeholder="E-post *" required />
           </div>
 
           <div className="formrow">
-            <div className="field">
-              <label>Telefon (valgfritt)</label>
-              <input className="input" name="phone" placeholder="+47 9x xx xx xx" />
-            </div>
-            <div className="field">
-              <label>Emne<span className="req">*</span></label>
-              <input className="input" name="topic" placeholder="Hva gjelder det?" required />
-            </div>
+            <input className="input" name="phone"  placeholder="Telefon (valgfritt)" />
+            <input className="input" name="subject" placeholder="Emne *" required />
           </div>
 
-          <div className="field" style={{marginTop:14}}>
-            <label>Melding<span className="req">*</span> <small>(min. 5 ord)</small></label>
-            <textarea className="textarea" name="message" placeholder="Skriv meldingen din her ..." required />
-          </div>
+          <textarea className="textarea" name="message" placeholder="Melding * (min. 5 ord)" required />
 
           <div className="submitrow">
-            <button className="btn primary" type="submit" disabled={status==='sending'}>
-              {status==='sending' ? 'Sender…' : 'Send melding'}
+            <button className="btn primary" type="submit" disabled={status==="sending"}>
+              {status==="sending" ? "Sender..." : "Send melding"}
             </button>
-            {status==='sent'   && <span className="note" style={{marginLeft:10,color:'#9ae6b4'}}>✅ Sendt!</span>}
-            {status==='error'  && <span className="note" style={{marginLeft:10,color:'#fecaca'}}>⚠️ {error}</span>}
-            {status==='idle' && error && <span className="note" style={{marginLeft:10,color:'#fecaca'}}>⚠️ {error}</span>}
+            {status==="error" && <span style={{marginLeft:12,color:"#fca5a5"}}>⚠ {error}</span>}
+            {status==="sent"  && <span style={{marginLeft:12,color:"#34d399"}}>✅ Takk! Meldingen er sendt.</span>}
           </div>
         </form>
       </div>
     </section>
-  )
+  );
 }
