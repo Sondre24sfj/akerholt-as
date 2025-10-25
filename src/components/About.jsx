@@ -3,7 +3,7 @@ export default function About(){
     <section className="section" id="om">
       <div className="container about">
         <div className="photo">
-          <img src="/public/images/hero/Om-meg.jpg" alt="Arbeid ved laptop" img></img>
+          <img src="/images/hero/Om-meg.jpg"  alt="Arbeid ved laptop" img></img>
         </div>
         <div>
           <h3>Om meg</h3>
