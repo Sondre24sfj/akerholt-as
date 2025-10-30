@@ -31,7 +31,7 @@ export default function Contact(){
     try {
       const res = await fetch(ENDPOINT, {
         method: "POST",
-        headers: { Accept: "application/json" },   // Viktig for FormSubmit
+        headers: { Accept: "application/json" },
         body: fd,
       });
 
@@ -45,8 +45,9 @@ export default function Contact(){
   }
 
   return (
-    <section className="section" id="kontakt">
+    <section className="section contact-section" id="kontakt">
       <div className="container contact">
+        {/* Tekst/intro til venstre (kommer først på mobil) */}
         <div className="left">
           <h3>Ta kontakt</h3>
           <p>Fortell kort hva du trenger hjelp med, så svarer jeg som regel samme dag.</p>
@@ -54,30 +55,46 @@ export default function Contact(){
           <p className="note">* Jeg lagrer ikke dataene dine i appen. Skjemaet sender en e-post til meg.</p>
         </div>
 
-        <form ref={formRef} onSubmit={onSubmit} className="right" autoComplete="on">
+        {/* Selve skjemaet som et “kort” */}
+        <form ref={formRef} onSubmit={onSubmit} className="contact-card" autoComplete="on" noValidate>
           {/* Skjulte felt anbefalt av FormSubmit */}
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
           <input type="text" name="_honey" style={{display:"none"}} tabIndex="-1" autoComplete="off" />
 
-          <div className="formrow">
-            <input className="input" name="name"  placeholder="Fullt navn *" required />
-            <input className="input" name="email" type="email" placeholder="E-post *" required />
-          </div>
+          <div className="grid">
+            <div className="field">
+              <label htmlFor="name">Fullt navn <span className="req">*</span></label>
+              <input id="name" className="input" name="name" required placeholder="Fornavn og etternavn" />
+            </div>
 
-          <div className="formrow">
-            <input className="input" name="phone"  placeholder="Telefon (valgfritt)" />
-            <input className="input" name="subject" placeholder="Emne *" required />
-          </div>
+            <div className="field">
+              <label htmlFor="email">E-post <span className="req">*</span></label>
+              <input id="email" className="input" type="email" name="email" required placeholder="din@epost.no" />
+            </div>
 
-          <textarea className="textarea" name="message" placeholder="Melding * (min. 5 ord)" required />
+            <div className="field">
+              <label htmlFor="phone">Telefon (valgfritt)</label>
+              <input id="phone" className="input" name="phone" placeholder="+47 123 45 678" />
+            </div>
+
+            <div className="field">
+              <label htmlFor="subject">Emne <span className="req">*</span></label>
+              <input id="subject" className="input" name="subject" required placeholder="Hva gjelder det?" />
+            </div>
+
+            <div className="field field--full">
+              <label htmlFor="message">Melding <span className="req">*</span></label>
+              <textarea id="message" className="textarea" name="message" required placeholder="Skriv meldingen din (minst 5 ord)"></textarea>
+            </div>
+          </div>
 
           <div className="submitrow">
-            <button className="btn primary" type="submit" disabled={status==="sending"}>
+            <button className="btn primary contact-submit" type="submit" disabled={status==="sending"}>
               {status==="sending" ? "Sender..." : "Send melding"}
             </button>
-            {status==="error" && <span style={{marginLeft:12,color:"#fca5a5"}}>⚠ {error}</span>}
-            {status==="sent"  && <span style={{marginLeft:12,color:"#34d399"}}>✅ Takk! Meldingen er sendt.</span>}
+            {status==="error" && <span className="form-msg form-msg--error">⚠ {error}</span>}
+            {status==="sent"  && <span className="form-msg form-msg--ok">✅ Takk! Meldingen er sendt.</span>}
           </div>
         </form>
       </div>
