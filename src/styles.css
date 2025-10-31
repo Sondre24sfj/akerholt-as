@@ -27,41 +27,41 @@
 /* ===========================
    Basis
    =========================== */
-*{box-sizing:border-box}
-html,body,#root{height:100%}
+*{ box-sizing:border-box }
+html,body,#root{ height:100% }
 body{
   margin:0;
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,'Helvetica Neue',Arial,'Apple Color Emoji','Segoe UI Emoji';
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,'Helvetica Neue',Arial,'Apple Color Emoji','Segoe UI Emoji';
   color:var(--text);
   background:
     radial-gradient(120% 80% at 50% -20%, rgba(35,74,178,.25), transparent 60%),
     linear-gradient(180deg,var(--bg-grad-1) 0%, var(--bg-grad-2) 40%, var(--bg-grad-3) 100%);
 }
-.container{max-width:1100px;margin:0 auto;padding:0 18px}
+.container{ max-width:1100px; margin:0 auto; padding:0 18px }
 
 /* (valgfri) topbar */
 .topbar{
-  height:28px;background:rgba(22,34,74,.65);
-  border-bottom:1px solid var(--line-soft);color:#cfe1ff;font-size:12px;
+  height:28px; background:rgba(22,34,74,.65);
+  border-bottom:1px solid var(--line-soft); color:#cfe1ff; font-size:12px;
 }
-.topbar .container{display:flex;align-items:center;justify-content:flex-end;height:100%;gap:16px}
+.topbar .container{ display:flex; align-items:center; justify-content:flex-end; height:100%; gap:16px }
 
 /* ===========================
-   Header (én linje, sticky, mobil)
+   Header
    =========================== */
 .header{
   position:sticky; top:0; z-index:50;
-  background:rgba(16,28,64,.65);
-  backdrop-filter:blur(8px);
+  background:rgba(16,28,64,.65); backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line-soft);
 }
 .header__row{
-  height:56px;
-  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  height:56px; display:flex; align-items:center; justify-content:space-between; gap:16px;
 }
 .brand{ font-weight:800; letter-spacing:.2px; font-size:18px; color:#eaf2ff; text-decoration:none }
 .nav--desktop{ display:flex; gap:22px; font-size:16px }
-.nav--desktop a, .aslink{ text-decoration:none; color:#c7d2fe; background:none; border:0; padding-top:2px; cursor:pointer; font:inherit }
+.nav--desktop a, .aslink{
+  text-decoration:none; color:#c7d2fe; background:none; border:0; padding-top:2px; cursor:pointer; font:inherit;
+}
 .nav--desktop a:hover, .aslink:hover{ color:#ffffff }
 .nav-toggle{
   display:none; width:40px; height:36px; border:1px solid var(--line);
@@ -77,7 +77,7 @@ body{
 }
 .nav-mobile a:hover, .nav-mobile .aslink:hover{ background:rgba(255,255,255,.05) }
 
-@media (max-width: 900px){
+@media (max-width:900px){
   .nav--desktop{ display:none }
   .nav-toggle{ display:inline-flex }
   .header.is-open .nav-mobile{ display:block }
@@ -88,10 +88,10 @@ body{
 
 /* Seksjonsoverskrifter */
 .section h3{
-  color: var(--accent);
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: .2px;
+  color:var(--accent);
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:.2px;
 }
 
 /* ===========================
@@ -108,30 +108,38 @@ body{
   margin:0 0 12px;
   font-size:46px; line-height:1.08; text-align:center; font-weight:900; letter-spacing:.2px; color:#f7fbff;
 }
-.hero h1 .muted{color:#e6ecff}
-.hero h1 .accent{ background:linear-gradient(90deg,var(--brand) 0%, var(--brand-2) 100%); -webkit-background-clip:text; background-clip:text; color:transparent }
+.hero h1 .muted{ color:#e6ecff }
+.hero h1 .accent{
+  background:linear-gradient(90deg,var(--brand) 0%, var(--brand-2) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
 .hero p{ text-align:center; color:#c3cff2; margin:10px 0 24px }
 .hero .cta{ display:flex; gap:14px; justify-content:center; align-items:center }
 
 .btn{
-  appearance:none;border:1px solid transparent;border-radius:12px;
-  padding:12px 18px;font-weight:800;cursor:pointer;font-size:14px;
+  appearance:none; border:1px solid transparent; border-radius:12px;
+  padding:12px 18px; font-weight:800; cursor:pointer; font-size:14px;
 }
-.btn.primary{ background:var(--brand);color:#fff;border-color:#173dbc; box-shadow:0 8px 18px rgba(31,79,216,.35) }
-.btn.primary:hover{filter:brightness(.96)}
-.btn.secondary{ background: rgba(34,211,238,.12); color: #e6fcff; border: 1px solid rgba(34,211,238,.35) }
+.btn.primary{
+  background:var(--brand); color:#fff; border-color:#173dbc;
+  box-shadow:0 8px 18px rgba(31,79,216,.35);
+}
+.btn.primary:hover{ filter:brightness(.96) }
+.btn.secondary{ background:rgba(34,211,238,.12); color:#e6fcff; border:1px solid rgba(34,211,238,.35) }
 
 /* ===========================
    About
    =========================== */
-.about{ display:grid;grid-template-columns:420px 1fr;gap:24px;align-items:start; margin-bottom:0 }
+.about{
+  display:grid; grid-template-columns:420px 1fr; gap:24px; align-items:start; margin-bottom:0;
+}
 .about .photo{
-  width:100%;height:230px;background:#0e1b3d;border-radius:12px;overflow:hidden;
+  width:100%; height:230px; background:#0e1b3d; border-radius:12px; overflow:hidden;
   box-shadow:var(--shadow); border:1px solid var(--line-soft);
 }
-.about .photo img{ width:100%;height:100%;object-fit:cover;display:block }
+.about .photo img{ width:100%; height:100%; object-fit:cover; display:block }
 .about h3{ margin:0 0 10px }
-.about p{ margin:8px 0;color:#b5c0e0;line-height:1.65 }
+.about p{ margin:8px 0; color:#b5c0e0; line-height:1.65 }
 
 /* ===========================
    Block-seksjoner
@@ -145,15 +153,13 @@ body{
 /* ===========================
    Portefølje
    =========================== */
-.portfolio-grid{ display:grid;grid-template-columns:repeat(3,1fr); gap:18px;margin-top:14px }
+.portfolio-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:14px }
 .card{
-  background:var(--card); color:#0b1220;
-  border:1px solid var(--card-line);
-  border-radius:var(--radius); overflow:hidden;
-  box-shadow:0 10px 26px rgba(3,6,18,.25);
-  transition: transform .18s ease, box-shadow .18s ease;
+  background:var(--card); color:#0b1220; border:1px solid var(--card-line);
+  border-radius:var(--radius); overflow:hidden; box-shadow:0 10px 26px rgba(3,6,18,.25);
+  transition:transform .18s ease, box-shadow .18s ease;
 }
-.card:hover{ transform: translateY(-2px); box-shadow:0 14px 32px rgba(3,6,18,.32) }
+.card:hover{ transform:translateY(-2px); box-shadow:0 14px 32px rgba(3,6,18,.32) }
 .card .thumb{ height:140px; display:flex; align-items:center; justify-content:center }
 .card .thumb img{ max-width:80%; max-height:80%; object-fit:contain; display:block }
 .card.wike   .thumb{ background:linear-gradient(180deg,#03265d 0%, #cfe0ff 45%, #03265d 100%) }
@@ -172,15 +178,14 @@ body{
 .badge--css{   background:#e7f0ff; color:#1e3a8a; border-color:#bfdbfe }
 
 /* Klikkbart kort + hånd-cursor */
-.card-link{ display:block; color:inherit; text-decoration:none; cursor: url('/images/ui/hand-pointer.png') 6 0, pointer }
+.card-link{ display:block; color:inherit; text-decoration:none; cursor:url('/images/ui/hand-pointer.png') 6 0, pointer }
 .card-link:focus-visible{ outline:2px solid #93c5fd; outline-offset:3px; border-radius:var(--radius) }
 
 /* ===========================
    Tech (video)
    =========================== */
 .tech-section{
-  position:relative; overflow:hidden; padding:60px 0; color:white;
-  margin-top:-40px; /* løfter “blue-lines” opp til Om meg */
+  position:relative; overflow:hidden; padding:60px 0; color:white; margin-top:-40px;
 }
 .tech-section::before{
   content:""; position:absolute; inset:0;
@@ -192,86 +197,55 @@ body{
 .techitem{ width:92px; display:flex; flex-direction:column; align-items:center; gap:8px }
 .techitem img{ height:32px; width:auto; object-fit:contain; filter:drop-shadow(0 2px 4px rgba(0,0,0,.45)) }
 .techitem span{ font-size:12px; color:#e7efff; text-align:center }
-.tech-section h3{ color: var(--accent) !important }
+.tech-section h3{ color:var(--accent) !important }
 
 /* ===========================
-   Kontakt – seksjonsbakgrunn
+   Kontaktseksjon
    =========================== */
 .contact-section{
-  background: linear-gradient(180deg, #0e1c3e 0%, #0b1430 100%);
+  background:linear-gradient(180deg, #0e1c3e 0%, #0b1430 100%);
   border-top:1px solid var(--line-soft);
   padding-bottom:48px;
 }
-
-/* Grunnlayout venstre/”kort” høyre */
 .contact{
-  display:grid; grid-template-columns: 1fr 1fr; gap: 24px;
-  margin-top: 10px; align-items:start;
+  display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:10px; align-items:start;
 }
 .contact .left p{ color:#c9d6ff; line-height:1.7 }
 
-/* Skjema som et panel/kort */
-.contact-card{
-  background: linear-gradient(180deg, rgba(255,255,255,.05) 0%, rgba(255,255,255,.02) 100%);
-  border: 1px solid var(--line-soft);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: var(--shadow);
-}
-
-/* Grid i skjemaet: to kolonner desktop, én på mobil */
-.contact-card .grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-.contact-card .field--full{ grid-column: 1 / -1; }
-
-/* Felt + labels */
+/* Skjemafelter – hvit bakgrunn */
 .field{ display:flex; flex-direction:column; gap:6px }
-.field label{
-  font-size: 13px; color:#e9f1ff; font-weight:700; letter-spacing:.2px;
+.field label{ font-size:13px; color:#e9f1ff; font-weight:600 }
+.field label .req{ color:#ffffff; margin-left:4px }
+.input,.textarea{
+  width:100%; padding:12px 14px; border-radius:12px;
+  border:1px solid #d1d5db; font-size:14px; background:#ffffff; color:#0b1220;
 }
-.field .req{ color:#fff; margin-left:4px }
-
-/* Input/textarea (hvite felter) */
-.input, .textarea{
-  width:100%;
-  padding: 13px 14px;
-  border-radius: 12px;
-  border: 1px solid #d1d5db;
-  background:#ffffff;
-  color:#0b1220;
-  font-size: 15px;
-  line-height: 1.3;
-}
-.input::placeholder, .textarea::placeholder{ color:#6b7280 }
-.textarea{ min-height: 160px; resize: vertical }
-
-/* Send + tilbakemeldinger */
-.submitrow{
-  display:flex; align-items:center; gap:12px; margin-top:12px;
-}
-.contact-submit{ height:48px; padding:0 22px; font-size:15px; font-weight:800 }
-.form-msg{ font-size:14px }
-.form-msg--error{ color:#fca5a5 }
-.form-msg--ok{ color:#34d399 }
+.input::placeholder,.textarea::placeholder{ color:#6b7280 }
+.textarea{ min-height:140px; resize:vertical }
+.formrow{ display:grid; grid-template-columns:1fr 1fr; gap:14px }
+.submitrow{ margin-top:12px; display:flex; align-items:center; gap:12px }
+.note{ font-size:12px; color:#9fb0e6; margin-top:8px }
+.section:not(.tech-section) .btn.primary{ box-shadow:0 8px 18px rgba(31,79,216,.35) }
 
 /* ===========================
    Footer
    =========================== */
 .footer-hero{
-  margin-top:0; /* tett inntil kontaktseksjonen */
+  margin-top:0;
   background: radial-gradient(120% 120% at 80% -40%, rgba(34,211,238,.08), transparent 60%),
               linear-gradient(180deg, #0e1c3e 0%, #0b1430 100%);
   border-top:1px solid var(--line-soft);
   color:#dfe7ff;
 }
-.footer-grid{ display:grid; grid-template-columns: 1.2fr 1fr; gap:32px; padding:28px 0 }
+.footer-grid{ display:grid; grid-template-columns:1.2fr 1fr; gap:32px; padding:28px 0 }
 .footer-title{ font-size:18px; font-weight:800; color:#22d3ee; margin-bottom:8px }
 .footer-text{ color:#b5c0e0; margin:8px 0 16px; max-width:560px }
 .footer-social{ display:flex; gap:14px; align-items:center; margin-bottom:10px }
-.footer-social a{ display:inline-flex; width:40px; height:40px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid var(--line); align-items:center; justify-content:center; transition:transform .15s ease }
+.footer-social a{
+  display:inline-flex; width:40px; height:40px; border-radius:999px;
+  background:rgba(255,255,255,.06); border:1px solid var(--line);
+  align-items:center; justify-content:center; transition:transform .15s ease;
+}
 .footer-social a:hover{ transform:translateY(-1px) }
 .footer-social img{ height:22px; width:auto }
 .footer-col-title{ font-weight:800; color:#22d3ee; margin-bottom:10px }
@@ -279,12 +253,9 @@ body{
 .footer-contact-row{ display:flex; align-items:center; gap:10px; padding:8px 0; color:#dbeafe }
 .footer-contact-row a{ color:#dbeafe; text-decoration:none }
 .footer-contact-row a:hover{ text-decoration:underline }
-
 .footer-bottom{
-  border-top:1px solid var(--line-soft);
-  color:#9fb0e6; font-size:13px;
-  padding:12px 0; background:rgba(10,18,44,.4);
-  text-align:center;
+  border-top:1px solid var(--line-soft); color:#9fb0e6; font-size:13px;
+  padding:12px 0; background:rgba(10,18,44,.4); text-align:center;
 }
 
 /* ===========================
@@ -299,12 +270,13 @@ body{
   .footer-grid{ grid-template-columns:1fr }
   .footer-contact{ justify-self:start }
 }
+
+/* Tving brudd og gjør skjemaet «app-aktig» på mobil */
 @media (max-width:900px){
   .contact{ grid-template-columns:1fr; gap:16px }
-  .contact .left{ order:0 }
-  .contact-card{ order:1; padding:16px }
-  .contact-card .grid{ grid-template-columns:1fr }
-  .contact-submit{ width:100% } /* full bredde knapp på mobil */
+  .formrow{ grid-template-columns:1fr }
+  .submitrow{ flex-direction:column; align-items:stretch }
+  .submitrow .btn{ width:100%; height:52px; font-size:16px }
 }
 @media (max-width:640px){
   .hero h1{ font-size:34px }
@@ -315,8 +287,9 @@ body{
   .card .thumb{ height:118px }
   .techitem{ width:84px }
   .techitem img{ height:28px }
+  .input,.textarea{ font-size:16px; padding:16px 18px; border-radius:14px }
+  .textarea{ min-height:220px }
 }
 @media (max-width:380px){
-  .input, .textarea{ font-size:14px }
-  .contact-card{ padding:14px }
+  .input,.textarea{ font-size:14px }
 }
