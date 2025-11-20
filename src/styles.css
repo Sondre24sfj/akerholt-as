@@ -150,62 +150,113 @@ body{
    Portefølje
    =========================== */
 .portfolio-grid{
-  display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:14px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:14px;
 }
 
 .card{
-  background:var(--card); color:#0b1220; border:1px solid var(--card-line);
-  border-radius:var(--radius); overflow:hidden;
+  background:var(--card);
+  color:#0b1220;
+  border:1px solid var(--card-line);
+  border-radius:var(--radius);
+  overflow:hidden;
   box-shadow:0 10px 26px rgba(3,6,18,.25);
   transition:transform .18s ease, box-shadow .18s ease;
   will-change:transform, box-shadow;
 }
-.card:hover{ transform:translateY(-2px); box-shadow:0 14px 32px rgba(3,6,18,.32) }
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 32px rgba(3,6,18,.32);
+}
 
-/* --- Ny topp/cover med bilde + overlay (matcher temaet) --- */
+/* TOPP / COVER – matcher bilde nr. 2 */
 .card .thumb{
   position:relative;
-  height:180px;
-  background:radial-gradient(120% 80% at 50% 10%, #365a9e33, #0e1c3e);
-  background-size:cover; background-position:center;
+  height:190px;
   overflow:hidden;
+  border-bottom:1px solid var(--card-line);
+  background-size:cover;
+  background-position:center 35%;
+  background-repeat:no-repeat;
 }
+
+/* Lys → mørk overlay som i eksempelbildet */
 .card .thumb::before{
-  content:""; position:absolute; inset:0;
-  background:linear-gradient(180deg, rgba(255,255,255,.05) 0%, rgba(11,20,48,.00) 35%, rgba(11,20,48,.55) 100%);
-}
-.card .thumb::after{
-  content:""; position:absolute; left:-20%; top:-20%; width:60%; height:200%;
-  background:linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,255,255,0) 60%);
-  transform:rotate(20deg); filter:blur(6px);
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.35) 0%,
+    rgba(255,255,255,.10) 45%,
+    rgba(11,20,48,.70) 100%
+  );
 }
 
-/* Tilpass for dine to forsidebilder */
-.card.wike  .thumb{ background-image:url('/images/portfolio/Wike-forside.jpg') }
-.card.stall .thumb{ background-image:url('/images/portfolio/SL-forside.jpg') }
+/* WIKE & Stall bruker forside-foto som bakgrunn */
+.card.wike .thumb{
+  background-image:url('/images/portfolio/Wike-forside.jpg');
+  background-position:center 40%;
+}
 
-/* GitHub-kort beholder logo, men får dyp gradient */
+.card.stall .thumb{
+  background-image:url('/images/portfolio/SL-forside.jpg');
+  background-position:center 42%;
+}
+
+/* GitHub beholder logoen, men får mørk gradient */
 .card.github .thumb{
   background:linear-gradient(180deg,#02243f 0%, #0f2f4f 60%, #0e1c3e 100%);
 }
+
+/* Logo-bilder inni thumb – brukes kun på GitHub-kortet */
 .card .thumb img{
-  max-width:80%; max-height:80%; object-fit:contain; display:block; margin:auto;
-  position:relative; z-index:1; filter:drop-shadow(0 4px 16px rgba(0,0,0,.35));
+  position:relative;
+  z-index:1;
+  max-width:80%;
+  max-height:80%;
+  object-fit:contain;
+  display:block;
+  margin:auto;
+  filter:drop-shadow(0 4px 16px rgba(0,0,0,.35));
 }
-/* Når vi bruker foto som bakgrunn trenger vi ikke logoen – skjul bare i disse kortene */
-.card.wike  .thumb img,
-.card.stall .thumb img{ display:none }
+
+/* Skjul logo-<img> for kort som bruker foto som bakgrunn */
+.card.wike .thumb img,
+.card.stall .thumb img{
+  display:none;
+}
 
 /* Body */
-.card .body{ background:#ffffff; padding:16px 16px 14px }
-.card .title{ font-weight:800; margin:0 0 6px; letter-spacing:.2px; color:#0b1220 }
-.card .text{ color:#4b5563; font-size:14px; line-height:1.55; margin:0 0 12px }
+.card .body{
+  background:#ffffff;
+  padding:16px 16px 14px;
+}
+.card .title{
+  font-weight:800;
+  margin:0 0 6px;
+  letter-spacing:.2px;
+  color:#0b1220;
+}
+.card .text{
+  color:#4b5563;
+  font-size:14px;
+  line-height:1.55;
+  margin:0 0 12px;
+}
 
 /* Chips / badges */
 .badges{ display:flex; gap:8px; flex-wrap:wrap }
 .badge{
-  font-size:12px; padding:6px 8px; border:1px solid #e6ecff; border-radius:999px;
-  background:#f8fbff; color:#334155; font-weight:700;
+  font-size:12px;
+  padding:6px 8px;
+  border:1px solid #e6ecff;
+  border-radius:999px;
+  background:#f8fbff;
+  color:#334155;
+  font-weight:700;
   box-shadow:0 2px 6px rgba(3,6,18,.06);
 }
 .badge--react{ background:#e8f0ff; color:#1d4ed8; border-color:#cfe1ff }
@@ -216,8 +267,17 @@ body{
 .badge--css{   background:#e7f0ff; color:#1e3a8a; border-color:#bfdbfe }
 
 /* Klikkbart kort + hånd-cursor */
-.card-link{ display:block; color:inherit; text-decoration:none; cursor:url('/images/ui/hand-pointer.png') 6 0, pointer }
-.card-link:focus-visible{ outline:2px solid #93c5fd; outline-offset:3px; border-radius:var(--radius) }
+.card-link{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+  cursor:url('/images/ui/hand-pointer.png') 6 0, pointer;
+}
+.card-link:focus-visible{
+  outline:2px solid #93c5fd;
+  outline-offset:3px;
+  border-radius:var(--radius);
+}
 
 /* ===========================
    Tech (video)
@@ -304,7 +364,7 @@ body{
 }
 @media (max-width:980px){
   .portfolio-grid{ grid-template-columns:1fr 1fr }
-  .card .thumb{ height:160px }
+  .card .thumb{ height:170px }
   .footer-grid{ grid-template-columns:1fr }
   .footer-contact{ justify-self:start }
 }
@@ -322,7 +382,7 @@ body{
   .section h3{ font-size:20px }
   .container{ padding:0 14px }
   .portfolio-grid{ grid-template-columns:1fr }
-  .card .thumb{ height:140px }
+  .card .thumb{ height:150px }
   .techitem{ width:84px }
   .techitem img{ height:28px }
   .input,.textarea{ font-size:16px; padding:16px 18px; border-radius:14px }
@@ -330,40 +390,4 @@ body{
 }
 @media (max-width:380px){
   .input,.textarea{ font-size:14px }
-}
-
-/* ===========================
-   Portefølje – forbedret utsnitt
-   =========================== */
-
-/* høyere thumbnail */
-.card .thumb {
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-bottom: 1px solid var(--card-line);
-}
-
-/* standard utsnitt */
-.card .thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 35%;
-  display: block;
-}
-
-/* prosjektspesifikke justeringer */
-.card.wike .thumb img {
-  object-position: center 45%;
-}
-
-.card.stall .thumb img {
-  object-position: center 40%;
-}
-
-.card.github .thumb img {
-  object-position: center 30%;
 }
