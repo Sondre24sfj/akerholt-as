@@ -298,32 +298,99 @@ body{
 .tech-section h3{ color:var(--accent) !important }
 
 /* ===========================
-   Kontaktseksjon
+   Kontaktseksjon – mørkere stil
    =========================== */
 .contact-section{
-  background:linear-gradient(180deg, #0e1c3e 0%, #0b1430 100%);
-  border-top:1px solid var(--line-soft);
-  padding-bottom:48px;
+  background: linear-gradient(180deg,
+      #050b1c 0%,     /* nesten svart blå */
+      #071228 45%,
+      #091933 100%    /* passer perfekt med resten av temaet */
+  );
+  border-top: 1px solid #12203d;
+  padding-bottom: 60px;
 }
-.contact{
-  display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:10px; align-items:start;
-}
-.contact .left p{ color:#c9d6ff; line-height:1.7 }
 
-/* Skjemafelter – hvit bakgrunn */
-.field{ display:flex; flex-direction:column; gap:6px }
-.field label{ font-size:13px; color:#6385c0; font-weight:600 }
-.field label .req{ color:#ffffff; margin-left:4px }
-.input,.textarea{
-  width:100%; padding:12px 14px; border-radius:12px;
-  border:1px solid #d1d5db; font-size:14px; background:#ffffff; color:#0b1220;
+/* Grid layout */
+.contact{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 10px;
+  align-items: start;
 }
-.input::placeholder,.textarea::placeholder{ color:#6b7280 }
-.textarea{ min-height:140px; resize:vertical }
-.formrow{ display:grid; grid-template-columns:1fr 1fr; gap:14px }
-.submitrow{ margin-top:12px; display:flex; align-items:center; gap:12px }
-.note{ font-size:12px; color:#9fb0e6; margin-top:8px }
-.section:not(.tech-section) .btn.primary{ box-shadow:0 8px 18px rgba(31,79,216,.35) }
+
+/* Venstre tekst */
+.contact .left p{
+  color: #d0dcff;
+  line-height: 1.7;
+}
+
+/* Skjemafelter */
+.field{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label{
+  font-size: 13px;
+  color: #6385c0;
+  font-weight: 600;
+}
+
+.field label .req{
+  color: #ffffff;
+  margin-left: 4px;
+}
+
+/* Input og textarea */
+.input,
+.textarea{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #c8cfe0;   /* litt mørkere */
+  font-size: 14px;
+  background: #ffffff;
+  color: #0b1220;
+}
+
+.input::placeholder,
+.textarea::placeholder{
+  color: #6b7280;
+}
+
+.textarea{
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Rader */
+.formrow{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Send-knapp og feilmeldinger */
+.submitrow{
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.note{
+  font-size: 12px;
+  color: #9fb0e6;
+  margin-top: 8px;
+}
+
+/* Knappens skygge */
+.section:not(.tech-section) .btn.primary{
+  box-shadow: 0 8px 18px rgba(31,79,216,.35);
+}
+
 
 /* ===========================
    Footer
