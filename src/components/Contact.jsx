@@ -52,7 +52,7 @@ export default function Contact(){
           <h3>Ta kontakt</h3>
           <p>Fortell kort hva du trenger hjelp med, så svarer jeg som regel samme dag.</p>
           <p>Du kan også sende e-post direkte: <strong>post.akerholt@gmail.com</strong></p>
-          <p className="note">* Jeg lagrer ikke dataene dine i appen. Skjemaet sender en e-post til meg.</p>
+          
         </div>
 
         {/* Selve skjemaet som et “kort” */}
@@ -85,7 +85,7 @@ export default function Contact(){
 
             <div className="field field--full">
               <label htmlFor="message">Melding <span className="req">*</span></label>
-              <textarea id="message" className="textarea" name="message" required placeholder="Skriv meldingen din (minst 5 ord)"></textarea>
+              <textarea id="message" className="textarea" name="message" required placeholder="Skriv meldingen din"></textarea>
             </div>
           </div>
 
