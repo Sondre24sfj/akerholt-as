@@ -70,22 +70,27 @@ body{
   text-decoration:none;
   color:#eaf2ff;
 }
-.brand__logo{
-  height:32px;
+
+/* Liten A-ikon */
+.brand-logo{
+  height:28px;
   width:auto;
   display:block;
+  flex-shrink:0;
 }
-.brand__text{
+
+/* Tekstdel med to linjer */
+.brand-text{
   display:flex;
   flex-direction:column;
   line-height:1.1;
 }
-.brand__title{
+.brand-line-main{
   font-weight:800;
   letter-spacing:.2px;
   font-size:18px;
 }
-.brand__subtitle{
+.brand-line-sub{
   font-size:11px;
   text-transform:uppercase;
   letter-spacing:.18em;
@@ -115,7 +120,7 @@ body{
   .nav--desktop{ display:none }
   .nav-toggle{ display:inline-flex }
   .header.is-open .nav-mobile{ display:block }
-  .brand__logo{ height:28px; }
+  .brand-logo{ height:24px; }
 }
 
 /* Seksjoner scroller pent under sticky header */
@@ -150,6 +155,14 @@ body{
 }
 .hero p{ text-align:center; color:#c3cff2; margin:10px 0 24px }
 .hero .cta{ display:flex; gap:14px; justify-content:center; align-items:center }
+
+/* 👉 Hindrer at evt. hero-bilder (som A-logoen) blir gigantiske */
+.hero img{
+  max-width:260px;
+  height:auto;
+  display:block;
+  margin:0 auto 20px;
+}
 
 .btn{
   appearance:none; border:1px solid transparent; border-radius:12px;
@@ -239,7 +252,6 @@ body{
   background-image:url('/images/portfolio/Wike-forside.jpg');
   background-position:center 40%;
 }
-
 .card.stall .thumb{
   background-image:url('/images/portfolio/SL-forside.jpg');
   background-position:center 42%;
