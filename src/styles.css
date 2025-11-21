@@ -54,10 +54,48 @@ body{
   background:rgba(16,28,64,.65); backdrop-filter:blur(8px);
   border-bottom:1px solid var(--line-soft);
 }
-.header__row{ height:56px; display:flex; align-items:center; justify-content:space-between; gap:16px }
-.brand{ font-weight:800; letter-spacing:.2px; font-size:18px; color:#eaf2ff; text-decoration:none }
+.header__row{
+  height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+/* Brand: logo + tekst */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:#eaf2ff;
+}
+.brand__logo{
+  height:32px;
+  width:auto;
+  display:block;
+}
+.brand__text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+.brand__title{
+  font-weight:800;
+  letter-spacing:.2px;
+  font-size:18px;
+}
+.brand__subtitle{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:#9fb5ff;
+}
+
 .nav--desktop{ display:flex; gap:22px; font-size:16px }
-.nav--desktop a, .aslink{ text-decoration:none; color:#c7d2fe; background:none; border:0; padding-top:2px; cursor:pointer; font:inherit }
+.nav--desktop a, .aslink{
+  text-decoration:none; color:#c7d2fe; background:none; border:0; padding-top:2px; cursor:pointer; font:inherit
+}
 .nav--desktop a:hover, .aslink:hover{ color:#ffffff }
 .nav-toggle{
   display:none; width:40px; height:36px; border:1px solid var(--line);
@@ -77,6 +115,7 @@ body{
   .nav--desktop{ display:none }
   .nav-toggle{ display:inline-flex }
   .header.is-open .nav-mobile{ display:block }
+  .brand__logo{ height:28px; }
 }
 
 /* Seksjoner scroller pent under sticky header */
@@ -171,7 +210,7 @@ body{
   box-shadow:0 14px 32px rgba(3,6,18,.32);
 }
 
-/* TOPP / COVER – matcher bilde nr. 2 */
+/* TOPP / COVER */
 .card .thumb{
   position:relative;
   height:190px;
@@ -182,7 +221,7 @@ body{
   background-repeat:no-repeat;
 }
 
-/* Lys → mørk overlay som i eksempelbildet */
+/* Lys → mørk overlay */
 .card .thumb::before{
   content:"";
   position:absolute;
@@ -302,9 +341,9 @@ body{
    =========================== */
 .contact-section{
   background: linear-gradient(180deg,
-      #050b1c 0%,     /* nesten svart blå */
+      #050b1c 0%,
       #071228 45%,
-      #091933 100%    /* passer perfekt med resten av temaet */
+      #091933 100%
   );
   border-top: 1px solid #12203d;
   padding-bottom: 60px;
@@ -349,7 +388,7 @@ body{
   width: 100%;
   padding: 12px 14px;
   border-radius: 12px;
-  border: 1px solid #c8cfe0;   /* litt mørkere */
+  border: 1px solid #c8cfe0;
   font-size: 14px;
   background: #ffffff;
   color: #0b1220;
@@ -391,7 +430,6 @@ body{
   box-shadow: 0 8px 18px rgba(31,79,216,.35);
 }
 
-
 /* ===========================
    Footer
    =========================== */
@@ -405,7 +443,9 @@ body{
 .footer-grid{ display:grid; grid-template-columns:1.2fr 1fr; gap:32px; padding:28px 0 }
 .footer-title{ font-size:18px; font-weight:800; color:#22d3ee; margin-bottom:8px }
 .footer-text{ color:#b5c0e0; margin:8px 0 16px; max-width:560px }
-.footer-social{ display:flex; gap:14px; align-items:center; margin-bottom:10px }
+.footer-social{
+  display:flex; gap:14px; align-items:center; margin-bottom:10px
+}
 .footer-social a{
   display:inline-flex; width:40px; height:40px; border-radius:999px;
   background:rgba(255,255,255,.06); border:1px solid var(--line);
@@ -445,7 +485,6 @@ body{
 }
 @media (max-width:640px){
   .hero h1{ font-size:34px }
-  .brand{ font-size:16px }
   .section h3{ font-size:20px }
   .container{ padding:0 14px }
   .portfolio-grid{ grid-template-columns:1fr }
