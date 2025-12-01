@@ -19,11 +19,15 @@ const tech = [
   { src: '/images/tech/VS-code.png', label: 'VS Code' },
   { src: '/images/tech/nPm.png', label: 'NPM' },
   { src: '/images/tech/AutoDesk.png', label: 'AutoDesk' },
+  { src: '/images/tech/cmake.png', label: 'Cmake' },
+  { src: '/images/tech/Git-bash.png', label: 'Git Bash' },
+  { src: '/images/tech/Mongo-DB.png', label: 'MongoDB' },
+  { src: '/images/tech/AnyDesk.png', label: 'AnyDesk' },
 ];
 
-export default function TechStack(){
+export default function TechStack() {
   return (
-    <section className="section tech-section">
+    <section className="section tech-section" id="tech">
       {/* Video-bakgrunn */}
       <video
         autoPlay
@@ -32,18 +36,25 @@ export default function TechStack(){
         playsInline
         className="tech-bg"
       >
-        <source src="/videos/blue-lines.mp4" type="video/mp4" />
+        <source src="/videos/Box-lines.mp4" type="video/mp4" />
+        {/* Fallback-tekst om video ikke støttes */}
+        Din nettleser støtter ikke video-taggen.
       </video>
 
       {/* Innhold */}
-      <div className="container" style={{textAlign:'center', position:'relative', zIndex:2}}>
-        <h3 style={{margin:'0 0 10px', color:'#fff'}}>Teknologier og rammeverk</h3>
-        <p style={{color:'#dbeafe', margin:'0 0 8px'}}>
+      <div
+        className="container"
+        style={{ textAlign: 'center', position: 'relative', zIndex: 2 }}
+      >
+        <h3 style={{ margin: '0 0 10px', color: '#ffffff' }}>
+          Teknologier og rammeverk
+        </h3>
+        <p style={{ color: '#dbeafe', margin: '0 0 8px' }}>
           Verktøyene jeg bruker for å bygge moderne nettopplevelser.
         </p>
 
         <div className="techlist">
-          {tech.map(({src,label}, i) => (
+          {tech.map(({ src, label }, i) => (
             <div className="techitem" key={i}>
               <img src={src} alt={label} loading="lazy" />
               <span>{label}</span>
@@ -52,5 +63,5 @@ export default function TechStack(){
         </div>
       </div>
     </section>
-  )
+  );
 }
