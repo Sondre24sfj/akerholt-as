@@ -156,7 +156,7 @@ body{
 .hero p{ text-align:center; color:#c3cff2; margin:10px 0 24px }
 .hero .cta{ display:flex; gap:14px; justify-content:center; align-items:center }
 
-/* 👉 Hindrer at evt. hero-bilder (som A-logoen) blir gigantiske */
+/* Hindrer at hero-bilder blir gigantiske (dersom du viser A-logoen her) */
 .hero img{
   max-width:260px;
   height:auto;
@@ -334,19 +334,59 @@ body{
    Tech (video)
    =========================== */
 .tech-section{
-  position:relative; overflow:hidden; padding:60px 0; color:white; margin-top:-40px;
+  position:relative;
+  overflow:hidden;
+  padding:60px 0;
+  color:white;
+  margin-top:-40px;
 }
 .tech-section::before{
-  content:""; position:absolute; inset:0;
+  content:"";
+  position:absolute;
+  inset:0;
   background:linear-gradient(180deg, rgba(11,20,48,.65) 0%, rgba(11,20,48,.75) 100%);
-  z-index:1; border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);
+  z-index:1;
+  border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
 }
-.tech-bg{ position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; filter:brightness(0.55) saturate(1.25) }
-.techlist{ display:flex; flex-wrap:wrap; gap:22px 30px; justify-content:center; padding:20px 0 8px }
-.techitem{ width:92px; display:flex; flex-direction:column; align-items:center; gap:8px }
-.techitem img{ height:32px; width:auto; object-fit:contain; filter:drop-shadow(0 2px 4px rgba(0,0,0,.45)) }
-.techitem span{ font-size:12px; color:#e7efff; text-align:center }
-.tech-section h3{ color:var(--accent) !important }
+.tech-bg{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+  filter:brightness(0.55) saturate(1.25);
+}
+.techlist{
+  display:flex;
+  flex-wrap:wrap;
+  gap:22px 30px;
+  justify-content:center;
+  padding:20px 0 8px;
+}
+.techitem{
+  width:92px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+}
+.techitem img{
+  height:32px;
+  width:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.45));
+}
+.techitem span{
+  font-size:12px;
+  color:#e7efff;
+  text-align:center;
+}
+.tech-section h3{
+  color:var(--accent) !important;
+}
 
 /* ===========================
    Kontaktseksjon – mørkere stil
