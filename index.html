@@ -2,21 +2,111 @@
 <html lang="no">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Favicon – bruker A-favicon.png fra public/images/hero -->
+    <!-- Tittel og grunnleggende SEO -->
+    <title>Akerholt AS – Web development & digitale løsninger</title>
+    <meta
+      name="description"
+      content="Akerholt AS leverer moderne, raske og brukervennlige nettsider og digitale løsninger for små og mellomstore bedrifter. Fullstack-utvikler i Hof, Vestfold."
+    />
+    <meta
+      name="keywords"
+      content="Akerholt AS, webutvikling, web development, nettsider, fullstack utvikler, React, Next.js, Hof, Vestfold, VuBrax"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://akerholt-as.no/" />
+
+    <!-- Favicon -->
     <link
       rel="icon"
       type="image/png"
       href="/images/hero/A-favicon.png"
       sizes="32x32"
     />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Akerholt AS</title>
-    <meta
-      name="description"
-      content="Fullstack-utvikler – skaper digitale løsninger"
+    <link
+      rel="apple-touch-icon"
+      href="/images/hero/A-favicon.png"
     />
+
+    <!-- Open Graph (Facebook, LinkedIn, m.m.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Akerholt AS" />
+    <meta
+      property="og:title"
+      content="Akerholt AS – Web development & digitale løsninger"
+    />
+    <meta
+      property="og:description"
+      content="Fullstack-utvikler som bygger moderne, skalerbare og brukervennlige nettsider for bedrifter. Basert i Hof, Vestfold."
+    />
+    <meta property="og:url" content="https://akerholt-as.no/" />
+    <meta
+      property="og:image"
+      content="https://akerholt-as.no/images/seo/seo-cover.png"
+    />
+    <meta property="og:locale" content="nb_NO" />
+
+    <!-- Twitter Card (funker også fint uten konto) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Akerholt AS – Web development & digitale løsninger"
+    />
+    <meta
+      name="twitter:description"
+      content="Akerholt AS hjelper bedrifter med profesjonelle nettsider og digitale løsninger."
+    />
+    <meta
+      name="twitter:image"
+      content="https://akerholt-as.no/images/seo/seo-cover.png"
+    />
+
+    <!-- Strukturert data: Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Akerholt AS",
+        "url": "https://akerholt-as.no",
+        "logo": "https://akerholt-as.no/images/hero/Akerholt-logo.png",
+        "description": "Akerholt AS leverer moderne og brukervennlige nettsider og digitale løsninger for bedrifter i Norge.",
+        "email": "post.akerholt@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Hof",
+          "postalCode": "3090",
+          "addressCountry": "NO"
+        }
+      }
+    </script>
+
+    <!-- Strukturert data: Person (deg som utvikler) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sondre Akerholt",
+        "jobTitle": "Fullstack-utvikler",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Akerholt AS"
+        },
+        "url": "https://akerholt-as.no",
+        "image": "https://akerholt-as.no/images/portfolio/SL-forside.jpg"
+      }
+    </script>
+
+    <!-- Strukturert data: WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Akerholt AS",
+        "url": "https://akerholt-as.no"
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
