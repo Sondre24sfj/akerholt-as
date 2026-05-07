@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <header className={`header ${open ? 'is-open' : ''}`}>
       <div className="container header__row">
-        <Link to="/" className="brand" aria-label="Akerholt AS – hjem">
+        <Link to="/" className="brand" aria-label="Akerholt AS – hjem" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           {/* Liten gradient-A som ikon */}
           <img
             src="/images/hero/A-favicon.png"
