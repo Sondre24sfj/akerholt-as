@@ -15,7 +15,7 @@ const tech = [
   { src: '/images/tech/PostCSS.png',         label: 'Post CSS' },
   { src: '/images/tech/TypeScript.png',      label: 'TypeScript' },
   { src: '/images/tech/GitHub.png',          label: 'GitHub' },
-  { src: '/images/tech/Autocad.png',         label: 'AutoCAD' },
+  { src: '/images/tech/Fortinet.png',        label: 'Fortinet' },
   { src: '/images/tech/Qt-logo.png',         label: 'Qt' },
   { src: '/images/tech/VS-code.png',         label: 'VS Code' },
   { src: '/images/tech/nPm.png',             label: 'NPM' },
