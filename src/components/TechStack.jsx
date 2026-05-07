@@ -24,6 +24,9 @@ const tech = [
   { src: '/images/tech/Git-bash.png',        label: 'Git Bash' },
   { src: '/images/tech/Mongo-DB.png',        label: 'MongoDB' },
   { src: '/images/tech/AnyDesk.png',         label: 'AnyDesk' },
+  { src: '/images/tech/kubernetes.png',      label: 'Kubernetes' },
+  { src: '/images/tech/docker.png',          label: 'Docker' },
+  { src: '/images/tech/Canva.png',           label: 'Canva' },
 ];
 
 export default function TechStack() {
