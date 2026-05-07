@@ -41,6 +41,7 @@ export default function Header() {
         <nav className="nav nav--desktop" aria-label="Hovedmeny">
           <button className="aslink" onClick={() => scrollToId('om')}>Om meg</button>
           <NavLink to="/portfolio">Portefølje</NavLink>
+          <NavLink to="/lisenser">Lisenser</NavLink>
           <a className="btn primary btn--sm" href="mailto:post.akerholt@gmail.com">Ta kontakt</a>
         </nav>
 
@@ -59,6 +60,7 @@ export default function Header() {
       <nav className="nav-mobile" aria-label="Mobilmeny">
         <button className="aslink" onClick={() => scrollToId('om')}>Om meg</button>
         <NavLink to="/portfolio">Portefølje</NavLink>
+        <NavLink to="/lisenser">Lisenser</NavLink>
         <a className="aslink" href="mailto:post.akerholt@gmail.com">Ta kontakt</a>
       </nav>
     </header>
