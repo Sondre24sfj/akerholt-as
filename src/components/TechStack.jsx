@@ -24,8 +24,8 @@ const tech = [
   { src: '/images/tech/Git-bash.png',        label: 'Git Bash' },
   { src: '/images/tech/Mongo-DB.png',        label: 'MongoDB' },
   { src: '/images/tech/AnyDesk.png',         label: 'AnyDesk' },
-  { src: '/images/tech/kubernetes.png',      label: 'Kubernetes' },
-  { src: '/images/tech/docker.png',          label: 'Docker' },
+  { src: '/images/tech/kubernetes.png',      label: 'Kubernetes', height: 26 },
+  { src: '/images/tech/docker.png',          label: 'Docker',     height: 44 },
   { src: '/images/tech/Canva.png',           label: 'Canva' },
 ];
 
@@ -57,9 +57,9 @@ export default function TechStack() {
         </p>
 
         <div className="techlist">
-          {tech.map(({ src, label }, i) => (
+          {tech.map(({ src, label, height }, i) => (
             <div className="techitem" key={i}>
-              <img src={src} alt={label} loading="lazy" />
+              <img src={src} alt={label} loading="lazy" style={height ? { height } : undefined} />
               <span>{label}</span>
             </div>
           ))}
