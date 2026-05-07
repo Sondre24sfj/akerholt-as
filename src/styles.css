@@ -697,11 +697,10 @@ body{
   .footer-contact{ justify-self:start }
 }
 @media (max-width:768px){
-  .hero{ padding:60px 0 52px }
+  .hero{ padding:60px 0 110px }
   .hero h1{ font-size:42px; letter-spacing:-.5px }
   .hero > .container > p{ font-size:16px }
   .section{ padding:60px 0 }
-  .scroll-indicator{ display:none }
 }
 @media (max-width:640px){
   .hero h1{ font-size:34px }
