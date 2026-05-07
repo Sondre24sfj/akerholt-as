@@ -8,6 +8,7 @@ const certs = [
         issuer: 'Fortinet',
         status: 'completed',
         img: '/images/certs/fortinet-fca.png',
+        tags: ['Nettverkssikkerhet', 'Trusselanalyse', 'Security Fabric'],
       },
       {
         name: 'Fortinet Certified Fundamentals Cybersecurity',
@@ -15,6 +16,7 @@ const certs = [
         issuer: 'Fortinet',
         status: 'completed',
         img: '/images/certs/fortinet-fcf.png',
+        tags: ['Cybersikkerhet grunnlag', 'Trussellandskap', 'Sikkerhetskonsepter'],
       },
       {
         name: 'NSE 3 – Network Security Associate',
@@ -22,6 +24,7 @@ const certs = [
         issuer: 'Fortinet',
         status: 'completed',
         img: '/images/certs/nse3.png',
+        tags: ['Fortinet-produkter', 'Security Fabric', 'Løsningsarkitektur'],
       },
       {
         name: 'NSE 2 – Network Security Associate',
@@ -29,6 +32,7 @@ const certs = [
         issuer: 'Fortinet',
         status: 'completed',
         img: '/images/certs/nse2.png',
+        tags: ['Cybertrusler', 'Angrepsvektorer', 'Sikkerhetsverktøy'],
       },
       {
         name: 'NSE 1 – Network Security Associate',
@@ -36,6 +40,7 @@ const certs = [
         issuer: 'Fortinet',
         status: 'completed',
         img: '/images/certs/nse1.png',
+        tags: ['Nettverksgrunnlag', 'Sikkerhetsprinsipper', 'Cyberhygiene'],
       },
       {
         name: 'Getting Started in Cybersecurity 3.0',
@@ -43,6 +48,7 @@ const certs = [
         issuer: 'Fortinet',
         status: 'completed',
         img: '/images/certs/nse1-get.png',
+        tags: ['Intro til cybersikkerhet', 'Grunnleggende begreper', 'Digital sikkerhet'],
       },
       {
         name: 'Technical Introduction to Cybersecurity 3.0',
@@ -50,6 +56,7 @@ const certs = [
         issuer: 'Fortinet',
         status: 'completed',
         img: '/images/certs/nse2.png',
+        tags: ['Angrepstyper', 'Malware & phishing', 'Forsvarsteknologier'],
       },
       {
         name: 'Introduction to the Threat Landscape 3.0',
@@ -57,6 +64,7 @@ const certs = [
         issuer: 'Fortinet',
         status: 'completed',
         img: '/images/certs/nse3.png',
+        tags: ['Trusselaktører', 'APT & ransomware', 'Motivasjon & metoder'],
       },
       {
         name: 'NSE 4 – Network Security Professional',
@@ -64,6 +72,7 @@ const certs = [
         issuer: 'Fortinet',
         status: 'progress',
         img: '/images/certs/nse4.png',
+        tags: ['FortiGate', 'Brannmur & VPN', 'Konfigurasjon & drift'],
       },
     ],
   },
@@ -76,6 +85,7 @@ const certs = [
         issuer: 'The Linux Foundation',
         status: 'completed',
         img: '/images/certs/linux-lfs158.png',
+        tags: ['Container-orkestrering', 'Pods & deployments', 'Services & skalering'],
       },
       {
         name: 'LFS101 – Introduction to Linux',
@@ -83,12 +93,13 @@ const certs = [
         issuer: 'The Linux Foundation',
         status: 'completed',
         img: '/images/certs/linux-lfs101.png',
+        tags: ['Kommandolinje', 'Filsystem & rettigheter', 'Shell-scripting'],
       },
     ],
   },
 ]
 
-function CertCard({ name, abbr, issuer, status, img }) {
+function CertCard({ name, abbr, issuer, status, img, tags }) {
   return (
     <div className={`cert-card ${status === 'progress' ? 'cert-card--progress' : ''}`}>
       <div className="cert-badge-wrap">
@@ -103,6 +114,11 @@ function CertCard({ name, abbr, issuer, status, img }) {
       <div className="cert-info">
         <div className="cert-name">{name}</div>
         <div className="cert-issuer">{issuer}</div>
+        {tags && (
+          <ul className="cert-tags-list">
+            {tags.map(t => <li key={t}>{t}</li>)}
+          </ul>
+        )}
         {status === 'progress' && (
           <span className="cert-tag cert-tag--progress">Pågår</span>
         )}
