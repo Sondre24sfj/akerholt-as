@@ -11,8 +11,8 @@ export default function Header() {
 
   // Hjelper for å scrolle til ankere på forsiden
   const scrollToId = (id) => {
+    setOpen(false)
     if (pathname !== '/') {
-      // Gå hjem først; Home håndterer scroll på mount via hash
       window.location.href = `/#${id}`
       return
     }

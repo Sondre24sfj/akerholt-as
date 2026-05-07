@@ -235,6 +235,37 @@ body{
 }
 .hero .cta{ display:flex; gap:14px; justify-content:center; align-items:center; flex-wrap:wrap }
 
+.scroll-indicator{
+  position:absolute;
+  bottom:28px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  cursor:pointer;
+  animation:scroll-bounce 2s ease-in-out infinite;
+  z-index:2;
+}
+.scroll-indicator__text{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#6a8ab8;
+}
+.scroll-indicator__line{
+  width:1px;
+  height:32px;
+  background:linear-gradient(to bottom, #2563eb, #22d3ee);
+  border-radius:1px;
+}
+@keyframes scroll-bounce{
+  0%,100%{ transform:translateX(-50%) translateY(0) }
+  50%{ transform:translateX(-50%) translateY(6px) }
+}
+
 /* ===========================
    Buttons
    =========================== */

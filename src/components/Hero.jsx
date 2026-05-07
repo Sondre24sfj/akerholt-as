@@ -19,6 +19,10 @@ export default function Hero(){
           <Link className="btn secondary" to="/portfolio">Se portefølje →</Link>
         </div>
       </div>
+      <div className="scroll-indicator" onClick={() => document.getElementById('om')?.scrollIntoView({ behavior: 'smooth' })}>
+        <span className="scroll-indicator__text">Scroll</span>
+        <div className="scroll-indicator__line" />
+      </div>
     </section>
   )
 }
