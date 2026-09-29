@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import { client } from '../lib/sanity.js'
 
 const FALLBACK_PARAGRAPHS = [
-  'Jeg er en løsningsorientert fullstack-utvikler med erfaring fra React / Node og moderne sky-miljøer. Jeg lager solide og lettstelte systemer med fokus på ytelse, tilgjengelighet og design.',
-  'Jeg liker prosjekter der jeg kan ta helheten – fra idé og prototyping i Figma til implementering, drift og videreutvikling.',
+  'Vi er et løsningsorientert utviklingsselskap med erfaring fra React / Node og moderne sky-miljøer. Vi lager solide og lettstelte systemer med fokus på ytelse, tilgjengelighet og design.',
+  'Vi liker prosjekter der vi kan ta helheten – fra idé og prototyping i Figma til implementering, drift og videreutvikling.',
   'Ta kontakt hvis du vil snakke om en ny løsning for selskapet ditt – eller oppgraderingen av den du allerede har.',
 ]
 
@@ -29,7 +29,7 @@ export default function About() {
           <img src={photo} alt="Arbeid ved laptop" loading="lazy" />
         </div>
         <div>
-          <h3>Om meg</h3>
+          <h3>Om oss</h3>
           {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
         </div>
       </div>

@@ -1,4 +1,5 @@
 // src/components/TechStack.jsx
+import CodeRain from './CodeRain.jsx';
 
 const tech = [
   { src: '/images/tech/HTML5-logo.png',      label: 'HTML5' },
@@ -32,17 +33,8 @@ const tech = [
 export default function TechStack() {
   return (
     <section className="section tech-section" id="tech">
-      {/* Video-bakgrunn */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="tech-bg"
-      >
-        <source src="/videos/Box-lines.mp4" type="video/mp4" />
-        Din nettleser støtter ikke video-taggen.
-      </video>
+      {/* Kode-regn i bakgrunnen */}
+      <CodeRain />
 
       {/* Innhold */}
       <div
@@ -53,7 +45,7 @@ export default function TechStack() {
           Teknologier og rammeverk
         </h3>
         <p style={{ color: '#dbeafe', margin: '0 0 8px' }}>
-          Verktøyene jeg bruker for å bygge moderne nettopplevelser.
+          Verktøyene vi bruker for å bygge moderne nettopplevelser.
         </p>
 
         <div className="techlist">

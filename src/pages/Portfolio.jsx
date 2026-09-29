@@ -8,7 +8,7 @@ const FALLBACK = [
     description: 'Nettside for entreprenør.',
     url: 'https://wikeco.no',
     image: '/images/portfolio/Wike-logo.png',
-    badges: ['WordPress', 'HTML', 'CSS'],
+    badges: ['React', 'Vite', 'JavaScript', 'Sanity', 'CSS'],
   },
   {
     _id: 'stall',
@@ -24,13 +24,24 @@ const FALLBACK = [
     description: 'En samling av åpne prosjekter og kode.',
     url: 'https://github.com/Sondre24sfj',
     image: '/images/portfolio/github-logo.png',
-    badges: ['React', 'HTML', 'CSS', 'Next.js', 'JavaScript'],
+    badges: ['React', 'HTML', 'CSS', 'Next.js', 'JavaScript', 'C++'],
   },
 ]
 
 function badgeClass(badge) {
-  const map = { React: 'react', JavaScript: 'js', 'Next.js': 'next', HTML: 'html', CSS: 'css', WordPress: 'wp', TypeScript: 'ts' }
+  const map = { React: 'react', JavaScript: 'js', 'Next.js': 'next', HTML: 'html', CSS: 'css', WordPress: 'wp', TypeScript: 'ts', Vite: 'vite', Sanity: 'sanity', 'C++': 'cpp' }
   return `badge badge--${map[badge] ?? 'html'}`
+}
+
+// "https://www.wikeco.no/" → "wikeco.no" (github.com/bruker beholder stien)
+function hostname(url) {
+  try {
+    const u = new URL(url)
+    const host = u.hostname.replace(/^www\./, '')
+    return host === 'github.com' ? `${host}${u.pathname.replace(/\/$/, '')}` : host
+  } catch {
+    return url
+  }
 }
 
 export default function PortfolioPage() {
@@ -51,7 +62,7 @@ export default function PortfolioPage() {
       <div className="container">
         <h3 style={{ margin: '0 0 10px' }}>Portefølje</h3>
         <p style={{ color: '#b5c0e0', margin: '0 0 12px' }}>
-          Et utvalg av prosjekter jeg har jobbet med, med teknologier og stack.
+          Et utvalg av prosjekter vi har jobbet med, med teknologier og stack.
         </p>
 
         <div className="portfolio-grid">
@@ -74,6 +85,12 @@ export default function PortfolioPage() {
                     <span key={b} className={badgeClass(b)}>{b}</span>
                   ))}
                 </div>
+                {item.url && (
+                  <span className="card-visit">
+                    {hostname(item.url)}
+                    <span className="card-visit-arrow" aria-hidden="true">↗</span>
+                  </span>
+                )}
               </div>
             </a>
           ))}

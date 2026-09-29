@@ -17,6 +17,15 @@ const FALLBACK_CERTS = [
     { name: 'LFS158 – Introduction to Kubernetes', abbr: 'K8s', issuer: 'The Linux Foundation', status: 'completed', img: '/images/certs/linux-lfs158.png', tags: ['Container-orkestrering', 'Pods & deployments', 'Services & skalering'] },
     { name: 'LFS101 – Introduction to Linux', abbr: 'Linux', issuer: 'The Linux Foundation', status: 'completed', img: '/images/certs/linux-lfs101.png', tags: ['Kommandolinje', 'Filsystem & rettigheter', 'Shell-scripting'] },
   ]},
+  { group: 'TP-Link Omada', items: [
+    { name: 'Omada Certified Network Administrator (OCNA) – Wireless', abbr: 'OCNA', issuer: 'TP-Link · Gyldig til mai 2029', status: 'completed', tags: ['Trådløse nettverk', 'Omada SDN', 'Tilgangspunkter & kontroller'] },
+  ]},
+  { group: 'Schneider Electric', items: [
+    { name: 'Introduction to EcoStruxure Building: Foundational', abbr: 'EBO', issuer: 'Schneider Electric University', status: 'completed', tags: ['Byggautomasjon', 'EcoStruxure', 'Integrasjon'] },
+    { name: 'Building Controls I: An Introduction to Building Controls', abbr: 'BC I', issuer: 'Schneider Electric University', status: 'completed', tags: ['Byggstyring', 'Styringssystemer', 'Grunnprinsipper'] },
+    { name: 'Building Controls II: Control Sensors', abbr: 'BC II', issuer: 'Schneider Electric University', status: 'completed', tags: ['Sensorer', 'Måling', 'Signaltyper'] },
+    { name: 'Building Controls V: Proportional and PID Responses', abbr: 'BC V', issuer: 'Schneider Electric University', status: 'completed', tags: ['PID-regulering', 'Reguleringsteknikk', 'Tilbakekobling'] },
+  ]},
 ]
 
 function groupBy(items) {
@@ -72,7 +81,7 @@ export default function LicensesPage() {
       <div className="container">
         <h3 style={{ margin: '0 0 6px' }}>Lisenser &amp; Sertifiseringer</h3>
         <p className="section-subtitle">
-          Kurs og sertifiseringer innen cybersikkerhet, nettverk og infrastruktur.
+          Kurs og sertifiseringer innen cybersikkerhet, nettverk, infrastruktur og byggautomasjon.
         </p>
 
         {groups.map(({ group, items }) => (
